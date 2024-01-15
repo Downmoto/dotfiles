@@ -36,4 +36,29 @@ require("lazy").setup({
 
   -- undotree (file history)
   'mbbill/undotree',
+
+  -- which-key (display key press information)
+  {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end
+  },
+
+  -- lualine (status bar)
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
+
+  -- comments
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options here
+    },
+    lazy = false,
+  }
 })
