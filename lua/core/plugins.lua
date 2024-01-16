@@ -65,4 +65,21 @@ require("lazy").setup({
   -- toggleterm (in vim terminal)
   {'akinsho/toggleterm.nvim', version = "*", config = true},
 
+
+  -- autocomplete
+  'neovim/nvim-lspconfig',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
+
+  -- snippets
+  'hrsh7th/cmp-vsnip',
+  'hrsh7th/vim-vsnip',
+
+
+  -- Mason (LSP package manager)
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
 })
