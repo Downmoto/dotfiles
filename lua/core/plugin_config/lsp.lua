@@ -1,6 +1,12 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "rust_analyzer", "tsserver", "pyright" }
+  ensure_installed = {
+    "lua_ls",
+    "rust_analyzer",
+    "tsserver",
+    "pyright",
+    "emmet_language_server"
+  }
 })
 
 
@@ -19,6 +25,16 @@ require('lspconfig')["rust_analyzer"].setup {
 }
 require('lspconfig')["lua_ls"].setup {
   capabilities = capabilities
+}
+require('lspconfig')["emmet_language_server"].setup {
+  capabilities = capabilities,
+  filetypes = {
+    "css",
+    "html",
+    "javascriptreact",
+    "typescriptreact",
+    "svelte"
+  }
 }
 
 
@@ -41,4 +57,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
   end,
 })
-
