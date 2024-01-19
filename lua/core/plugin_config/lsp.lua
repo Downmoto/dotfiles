@@ -5,15 +5,28 @@ require("mason-lspconfig").setup({
     "rust_analyzer",
     "tsserver",
     "pyright",
-    "emmet_language_server"
+    "emmet_language_server",
+    "svelte"
   }
 })
 
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+require("mason-lspconfig").setup_handlers {
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {}
+    end,
+    -- Next, you can provide a dedicated handler for specific servers.
+    -- For example, a handler override for the `rust_analyzer`:
+    -- ["rust_analyzer"] = function ()
+    --     require("rust-tools").setup {}
+    -- end
+}
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require('lspconfig')["pyright"].setup {
   capabilities = capabilities
 }
@@ -35,6 +48,9 @@ require('lspconfig')["emmet_language_server"].setup {
     "typescriptreact",
     "svelte"
   }
+}
+require('lspconfig')["svelte"].setup {
+  capabilities = capabilities
 }
 
 
