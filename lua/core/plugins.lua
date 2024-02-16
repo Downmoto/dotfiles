@@ -1,4 +1,6 @@
 require("lazy").setup({
+  -- copilot
+  "zbirenbaum/copilot.lua",
   -- colour scheme (nightfly)
   'bluz71/vim-nightfly-colors',
 
